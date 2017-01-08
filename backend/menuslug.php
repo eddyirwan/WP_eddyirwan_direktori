@@ -4,7 +4,7 @@ function slug_admin_menu() {
 	//this is the main item for the menu
 	add_menu_page(
 		'::List Directory::', //page title
-		APPS_NAME, //menu title
+		EIDIR_APPS_NAME, //menu title
 		'manage_options', //capabilities
 		'list_directory', //menu slug
 		'listDirectory'//function
