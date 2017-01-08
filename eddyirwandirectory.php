@@ -14,8 +14,8 @@ require_once( plugin_dir_path( __FILE__ ) . "settings.php");
 #require_once( plugin_dir_path( __FILE__ ) . DIRECTORY_SEPARATOR. "shared" . DIRECTORY_SEPARATOR."pagination.class.php");
 #require_once( plugin_dir_path( __FILE__ ) . "shared".DIRECTORY_SEPARATOR."stringhelper.class.php");
 
-#register_activation_hook(__FILE__, 'createDBDIR_EI');
-#register_deactivation_hook( __FILE__, 'deleteDBDIR_EI' );
+#register_activation_hook(__FILE__, 'createDBDIR_EIDIR');
+#register_deactivation_hook( __FILE__, 'deleteDBDIR_EIDIR' );
 /*
 add_action( 'wp_ajax_ei_voteThruAjax', 'ei_voteThruAjax' );
 add_action( 'wp_ajax_nopriv_ei_voteThruAjax', 'ei_voteThruAjax' );
