@@ -39,11 +39,8 @@ function createDBDIR_EIDIR() {
 		picture_path varchar(500) NULL,
 		picture_url varchar(500) NULL,
 		UNIQUE KEY id (id),
-		ADD KEY `table_master` (`table_master`),
-  		ADD KEY `picture_path` (`picture_path`),
-  		ADD KEY `picture_url` (`picture_url`),
-  		ADD KEY `status` (`status`),
-		INDEX table_master (table_master)
+  		KEY table_master (table_master),
+  		KEY status (status)
 	) $charset_collate;";
 
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
