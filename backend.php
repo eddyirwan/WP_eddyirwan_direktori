@@ -77,14 +77,14 @@ class listDeleteDirectory extends Controller {
 	        		'id' => $idfromUrl
 	        	));
 		        
-		        $table_name = $wpdb->prefix . TABLENAMEDETAIL;
+		        $table_name = $wpdb->prefix . EIDIR_TABLENAMEDETAIL;
 		        $wpdb->delete( $table_name, array( 
 		        	'table_master' => $idfromUrl
 		        ));
 
 			}
 			else if ($task == "deleteattribute") {
-		        $table_name = $wpdb->prefix . TABLENAMEDETAIL;
+		        $table_name = $wpdb->prefix . EIDIR_TABLENAMEDETAIL;
 		        $wpdb->delete( $table_name, array( 
 		        	'id' => $idfromUrl
 		        ));
@@ -92,7 +92,7 @@ class listDeleteDirectory extends Controller {
 		        exit();
 			}
 			else if ($task == "deleteimage") {
-		        $table_name = $wpdb->prefix . TABLENAMEDETAIL;
+		        $table_name = $wpdb->prefix . EIDIR_TABLENAMEDETAIL;
 		        $sql = "SELECT * FROM $table_name WHERE id = $idfromUrl";
 		        $output=$wpdb->get_row($sql);
 		        #echo "<pre>".print_r($output,true)."</pre>";
@@ -177,7 +177,7 @@ class listStaffDirectory extends Controller {
 		$image_folder= plugins_url('images/', __FILE__);
 		$masterFromUrl=(isset($_GET["master"])? $_GET["master"]:'');
 		$table_name1 = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
-     	$table_name2 = $wpdb->prefix . TABLENAMEDETAIL;
+     	$table_name2 = $wpdb->prefix . EIDIR_TABLENAMEDETAIL;
      	$details = $wpdb->get_results("SELECT * from $table_name1",OBJECT_K);
 
      	#echo "<pre>".print_r($details,true)."</pre>";
@@ -216,7 +216,7 @@ class addStaffDirectory extends Controller {
 			require_once( plugin_dir_path( __FILE__ ) . "views/admin_addstaffdirectory.php");
 		}
 		else {
-			$table_name1= $wpdb->prefix . TABLENAMEDETAIL;
+			$table_name1= $wpdb->prefix . EIDIR_TABLENAMEDETAIL;
 			$position_default = sanitize_text_field(  (isset($_POST["position-default"])? $_POST["position-default"]:''));
 			$position_en = sanitize_text_field(  (isset($_POST["position-en"])? $_POST["position-en"]:''));
 			$status = sanitize_text_field(  (isset($_POST["status"])? $_POST["status"]:''));
@@ -272,7 +272,7 @@ class updateStaffDirectory extends Controller {
 			require_once( plugin_dir_path( __FILE__ ) . "views/admin_updatestaffdirectory.php");
 		}
 		else {
-			$table_name1= $wpdb->prefix . TABLENAMEDETAIL;
+			$table_name1= $wpdb->prefix . EIDIR_TABLENAMEDETAIL;
 			$position_default = sanitize_text_field(  (isset($_POST["position-default"])? $_POST["position-default"]:''));
 			$position_en = sanitize_text_field(  (isset($_POST["position-en"])? $_POST["position-en"]:''));
 			$status = sanitize_text_field(  (isset($_POST["status"])? $_POST["status"]:''));
@@ -300,7 +300,7 @@ class updateStaffDirectory extends Controller {
 		$table_name1 = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
      	$details = $wpdb->get_results("SELECT * from $table_name1");
      	$idfromUrl=$_GET["id"];
-     	$table_name2 = $wpdb->prefix . TABLENAMEDETAIL;
+     	$table_name2 = $wpdb->prefix . EIDIR_TABLENAMEDETAIL;
         $rows = $wpdb->get_results("SELECT * from $table_name2 where id = $idfromUrl");
 		require_once( plugin_dir_path( __FILE__ ) . "views/admin_updatestaffdirectory.php");
 		
@@ -326,7 +326,7 @@ class pictureStaffDirectory extends Controller {
 		    remove_filter('upload_dir', 'my_upload_dir');
 		    remove_filter( 'sanitize_file_name', 'my_filename_convention', 10 );
 		    global $wpdb;
-		    $table_name1 = $wpdb->prefix . TABLENAMEDETAIL;
+		    $table_name1 = $wpdb->prefix . EIDIR_TABLENAMEDETAIL;
 		    $file_uploaded=str_replace(get_home_path(), '', $file['file']);
 		    $url_uploaded=str_replace(site_url(), '', $file['url']);
 			
@@ -348,7 +348,7 @@ class pictureStaffDirectory extends Controller {
 		global $wpdb;
 		global $reg_errors;
 		$idfromUrl=$_GET["id"];
-		$table_name = $wpdb->prefix . TABLENAMEDETAIL;
+		$table_name = $wpdb->prefix . EIDIR_TABLENAMEDETAIL;
      	$rows = $wpdb->get_results("SELECT * from $table_name WHERE id = $idfromUrl");
      	$image_folder= plugins_url('images/', __FILE__);
 		require_once( plugin_dir_path( __FILE__ ) . "views/admin_picturestaffdirectory.php");

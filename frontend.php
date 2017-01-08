@@ -6,7 +6,7 @@ class frontend {
     function __construct($atts=array()) {
         global $wpdb;
         $this->table_name1 = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
-        $this->table_name2 = $wpdb->prefix . TABLENAMEDETAIL;
+        $this->table_name2 = $wpdb->prefix . EIDIR_TABLENAMEDETAIL;
         $this->lang = "default";
     }
     
