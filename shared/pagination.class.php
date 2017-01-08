@@ -5,8 +5,8 @@ class pagination {
 	private $page,$sort;
 	
 	function __construct($tablename,$wpdb) {
-		$this->page=PAGINATION;
-		$this->sort=PAGINATION_SORT;
+		$this->page=EIDIR_PAGINATION;
+		$this->sort=EIDIR_PAGINATION_SORT;
 		$this->tablename=$tablename;
 		$this->wpdb=$wpdb;
 	}
