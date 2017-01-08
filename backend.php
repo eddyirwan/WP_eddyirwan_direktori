@@ -181,12 +181,12 @@ class listStaffDirectory extends EIDIR_Controller {
      	$details = $wpdb->get_results("SELECT * from $table_name1",OBJECT_K);
 
      	#echo "<pre>".print_r($details,true)."</pre>";
-     	$pagination = new pagination($table_name2,$wpdb);
+     	$eidir_pagination = new eidir_pagination($table_name2,$wpdb);
      	if ($masterFromUrl) {
-     		$rows=$pagination->query("*","where table_master = $masterFromUrl");
+     		$rows=$eidir_pagination->query("*","where table_master = $masterFromUrl");
      	}
      	else {
-     		$rows=$pagination->query("*");
+     		$rows=$eidir_pagination->query("*");
      		#$sql2="SELECT * from $table_name2";
      	}
      	#$rows = $wpdb->get_results($sql2);

@@ -85,4 +85,4 @@
             </tr>
         <?php } ?>
     </table>
-    <?php $pagination->generateLink(); ?> 
+    <?php $eidir_pagination->generateLink(); ?> 

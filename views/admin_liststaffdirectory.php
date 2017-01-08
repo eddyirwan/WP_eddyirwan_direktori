@@ -94,4 +94,4 @@
             </tr>
         <?php } ?>
     </table>
-    <?php $pagination->generateLinkForAdmin(); ?> 
+    <?php $eidir_pagination->generateLinkForAdmin(); ?> 

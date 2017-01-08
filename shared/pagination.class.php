@@ -1,6 +1,6 @@
 <?php
 
-class pagination {
+class eidir_pagination {
 	private $wpdb,$tablename,$totalPage,$totalLines,$pageRequested;
 	private $page,$sort;
 	
