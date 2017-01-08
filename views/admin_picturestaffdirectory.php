@@ -43,7 +43,7 @@ if ( is_wp_error( $reg_errors ) ) {
 <form action="<?php echo admin_url('admin.php?page=picture_staff_directory&noheader=true'); ?>" 
     method="post"
     enctype="multipart/form-data">
-<input type="hidden" name="pluginname" value="<?php echo PLUGIN_NAME; ?>"/>
+<input type="hidden" name="pluginname" value="<?php echo EIDIR_PLUGIN_NAME; ?>"/>
 <input type="hidden" name="id" value="<?php echo $idfromUrl ?>"/>
 <?php foreach ($rows as $row) { ?>
 <p>

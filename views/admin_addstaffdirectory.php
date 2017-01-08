@@ -22,7 +22,7 @@ if ( is_wp_error( $reg_errors ) ) {
 ?>
 <div style="height:10px"></div>
 <form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ); ?>&noheader=true" method="post">
-<input type="hidden" name="pluginname" value="<?php echo PLUGIN_NAME; ?>"/>
+<input type="hidden" name="pluginname" value="<?php echo EIDIR_PLUGIN_NAME; ?>"/>
 <p>
 Name (required) <br/>
 <input type="text" name="name" 

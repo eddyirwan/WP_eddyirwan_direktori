@@ -24,7 +24,7 @@ add_action( 'wp_ajax_nopriv_ei_seeResultFromAjax', 'ei_seeResultFromAjax' );
 add_action( 'init', 'custom_lang_found' );
 */
 
-#add_shortcode( PLUGIN_NAME , 'frontend' );
+#add_shortcode( EIDIR_PLUGIN_NAME , 'frontend' );
 /*
 if (is_admin()) {
 	require_once( plugin_dir_path( __FILE__ ) . "backend.php");
