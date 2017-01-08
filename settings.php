@@ -1,7 +1,7 @@
 <?php
 define("EIDIR_TABLENAMEMASTER","ei_directorylist");
 define("EIDIR_TABLENAMEDETAIL","ei_directorylist_detail");
-define("EIDIR_APPS_NAME", "EI_DIRECTORY");
+define("EIDIR_APPS_NAME", "EI DIRECTORY");
 define("EIDIR_PLUGIN_NAME", "def");
 define("EIDIR_PAGINATION", "5");
 define("EIDIR_PAGINATION_SORT", "DESC");
@@ -48,8 +48,8 @@ function createDBDIR_EIDIR() {
 
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 	dbDelta($sql1);
-	#dbDelta($sql2);
-	
+	dbDelta($sql2);
+	   
 }
 
 function deleteDBDIR_EIDIR() {
