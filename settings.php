@@ -1,14 +1,14 @@
 <?php
 define("EIDIR_TABLENAMEMASTER","ei_directorylist");
 define("EIDIR_TABLENAMEDETAIL","ei_directorylist_detail");
-define("APPS_NAME", "EI_DIRECTORY");
-define("PLUGIN_NAME", "def");
-define("PAGINATION", "5");
-define("PAGINATION_SORT", "DESC");
+define("EIDIR_APPS_NAME", "EI_DIRECTORY");
+define("EIDIR_PLUGIN_NAME", "def");
+define("EIDIR_PAGINATION", "5");
+define("EIDIR_PAGINATION_SORT", "DESC");
 
 /* please dont touch */
 
-function createDBDIR_EI() {
+function createDBDIR_EIDIR() {
 	global $wpdb;
 	$charset_collate = $wpdb->get_charset_collate();
 	$table_name1 = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
@@ -52,7 +52,7 @@ function createDBDIR_EI() {
 	
 }
 
-function deleteDBDIR_EI() {
+function deleteDBDIR_EIDIR() {
 	global $wpdb;
     $table_name1 = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
 	$table_name2 = $wpdb->prefix . EIDIR_TABLENAMEDETAIL;
