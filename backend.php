@@ -320,11 +320,11 @@ class pictureStaffDirectory extends EIDIR_Controller {
 			$idfromUrl=$_POST["id"];
 		    $allowed_file_types = array('jpg' =>'image/jpg','jpeg' =>'image/jpeg');
 		    $overrides = array('test_form' => false, 'mimes' => $allowed_file_types);
-		    add_filter('upload_dir', 'my_upload_dir');
-		    add_filter( 'sanitize_file_name', 'my_filename_convention', 10 );
+		    add_filter('upload_dir', 'ei_my_upload_dir');
+		    add_filter( 'sanitize_file_name', 'ei_my_filename_convention', 10 );
 		    $file = wp_handle_upload($_FILES['file'], $overrides);
-		    remove_filter('upload_dir', 'my_upload_dir');
-		    remove_filter( 'sanitize_file_name', 'my_filename_convention', 10 );
+		    remove_filter('upload_dir', 'ei_my_upload_dir');
+		    remove_filter( 'sanitize_file_name', 'ei_my_filename_convention', 10 );
 		    global $wpdb;
 		    $table_name1 = $wpdb->prefix . EIDIR_TABLENAMEDETAIL;
 		    $file_uploaded=str_replace(get_home_path(), '', $file['file']);
