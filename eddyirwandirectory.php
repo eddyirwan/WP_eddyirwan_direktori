@@ -11,11 +11,11 @@ Description: STAFF DIRECTORY for Malaysian Government Website
 
 
 require_once( plugin_dir_path( __FILE__ ) . "settings.php");
-#require_once( plugin_dir_path( __FILE__ ) . DIRECTORY_SEPARATOR. "shared" . DIRECTORY_SEPARATOR."pagination.class.php");
-#require_once( plugin_dir_path( __FILE__ ) . "shared".DIRECTORY_SEPARATOR."stringhelper.class.php");
+require_once( plugin_dir_path( __FILE__ ) . DIRECTORY_SEPARATOR. "shared" . DIRECTORY_SEPARATOR."pagination.class.php");
+require_once( plugin_dir_path( __FILE__ ) . "shared".DIRECTORY_SEPARATOR."stringhelper.class.php");
 
-#register_activation_hook(__FILE__, 'createDBDIR_EIDIR');
-#register_deactivation_hook( __FILE__, 'deleteDBDIR_EIDIR' );
+register_activation_hook(__FILE__, 'createDBDIR_EIDIR');
+register_deactivation_hook( __FILE__, 'deleteDBDIR_EIDIR' );
 /*
 add_action( 'wp_ajax_ei_voteThruAjax', 'ei_voteThruAjax' );
 add_action( 'wp_ajax_nopriv_ei_voteThruAjax', 'ei_voteThruAjax' );
@@ -23,9 +23,8 @@ add_action( 'wp_ajax_ei_seeResultFromAjax', 'ei_seeResultFromAjax' );
 add_action( 'wp_ajax_nopriv_ei_seeResultFromAjax', 'ei_seeResultFromAjax' );
 add_action( 'init', 'custom_lang_found' );
 */
+add_shortcode( EIDIR_PLUGIN_NAME , 'ei_frontend' );
 
-#add_shortcode( EIDIR_PLUGIN_NAME , 'frontend' );
-/*
 if (is_admin()) {
 	require_once( plugin_dir_path( __FILE__ ) . "backend.php");
 	function listDirectory() {	
@@ -55,17 +54,17 @@ if (is_admin()) {
 }
 else {
 	require_once( plugin_dir_path( __FILE__ ) . "frontend.php");
-	
-	#add_action( 'init', 'custom_lang_found' );
-	function frontend($atts) {
+
+	function ei_frontend($atts) {
 	    ob_start();
 	    $fe = new frontend($atts);
 	    $fe->loadLanguageClass($atts);
 	    $fe->viewByDirectory();
 	    return ob_get_clean();
 	}
+	
 }
-*/
+
 
 
 
