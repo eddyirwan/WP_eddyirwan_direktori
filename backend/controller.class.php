@@ -1,5 +1,5 @@
 <?php
-class Controller{
+class EIDIR_Controller{
 	#var $function_name_get,$function_name_post;
 	function __construct() {
 		$function_name_get = 'get_'.get_called_class();

@@ -6,7 +6,7 @@ require_once( plugin_dir_path( __FILE__ ) . "backend".DIRECTORY_SEPARATOR."valid
 
 add_action('admin_menu','slug_admin_menu');
 
-class listDirectory extends Controller {
+class listDirectory extends EIDIR_Controller {
 	function __construct() {
 		parent::__construct();
 	}
@@ -22,7 +22,7 @@ class listDirectory extends Controller {
 	}
 }
 
-class listAddDirectory extends Controller {
+class listAddDirectory extends EIDIR_Controller {
 	function __construct() {
 		parent::__construct();
 	}
@@ -61,7 +61,7 @@ class listAddDirectory extends Controller {
 	}
 }
 
-class listDeleteDirectory extends Controller {
+class listDeleteDirectory extends EIDIR_Controller {
 	function __construct() {
 		parent::__construct();
 	}
@@ -114,7 +114,7 @@ class listDeleteDirectory extends Controller {
 	}
 }
 
-class listUpdateDirectory extends Controller {
+class listUpdateDirectory extends EIDIR_Controller {
 	function __construct() {
 		parent::__construct();
 	}
@@ -161,7 +161,7 @@ class listUpdateDirectory extends Controller {
 	}
 }
 
-class listStaffDirectory extends Controller {
+class listStaffDirectory extends EIDIR_Controller {
 	function __construct() {
 		parent::__construct();
 	}
@@ -194,7 +194,7 @@ class listStaffDirectory extends Controller {
 	}
 }
 
-class addStaffDirectory extends Controller {
+class addStaffDirectory extends EIDIR_Controller {
 	function __construct() {
 		parent::__construct();
 	}
@@ -249,7 +249,7 @@ class addStaffDirectory extends Controller {
 	}
 }
 
-class updateStaffDirectory extends Controller {
+class updateStaffDirectory extends EIDIR_Controller {
 	function __construct() {
 		parent::__construct();
 	}
@@ -307,7 +307,7 @@ class updateStaffDirectory extends Controller {
 	}
 }
 
-class pictureStaffDirectory extends Controller {
+class pictureStaffDirectory extends EIDIR_Controller {
 	function __construct() {
 		parent::__construct();
 	}
