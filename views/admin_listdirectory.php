@@ -25,7 +25,7 @@
                 <td>
                     <p><?php echo $row->title_en; ?></p>                   
                 </td>
-                <td><?php echo StringHelper::returnTextForStatus($row->status); ?></td>
+                <td><?php echo eidir_StringHelper::returnTextForStatus($row->status); ?></td>
                 <td> 
                    
                     <div>

@@ -79,7 +79,7 @@
                     <div>Default: <?php echo $row->position_default; ?></div>   
                     <div>En: <?php echo $row->position_en; ?></div>                   
                 </td>
-                <td><?php echo StringHelper::returnTextForStatus($row->status); ?></td>
+                <td><?php echo eidir_StringHelper::returnTextForStatus($row->status); ?></td>
                 <td> 
                    
                     <div>
