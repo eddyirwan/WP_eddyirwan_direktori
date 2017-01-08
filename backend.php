@@ -16,7 +16,7 @@ class listDirectory extends Controller {
 	public function get_listDirectory() {
 		global $wpdb;
 		global $reg_errors;
-     	$table_name = $wpdb->prefix . TABLENAMEMASTER;
+     	$table_name = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
   	    $rows = $wpdb->get_results("SELECT * from $table_name");
 		require_once( plugin_dir_path( __FILE__ ) . "views/admin_listdirectory.php");
 	}
@@ -38,7 +38,7 @@ class listAddDirectory extends Controller {
 		}
 		else {
 			global $wpdb;
-			$table_name1= $wpdb->prefix . TABLENAMEMASTER;
+			$table_name1= $wpdb->prefix . EIDIR_TABLENAMEMASTER;
 			$title_default = sanitize_text_field(  (isset($_POST["title-default"])? $_POST["title-default"]:''));
 			$title_en = sanitize_text_field(  (isset($_POST["title-en"])? $_POST["title-en"]:''));
 			$status = sanitize_text_field(  (isset($_POST["status"])? $_POST["status"]:''));
@@ -72,7 +72,7 @@ class listDeleteDirectory extends Controller {
 			$task=(isset($_GET["task"])? $_GET["task"]:'');
 			
 			if ($task == "deleteall") {
-				$table_name = $wpdb->prefix . TABLENAMEMASTER;
+				$table_name = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
 	        	$wpdb->delete( $table_name, array( 
 	        		'id' => $idfromUrl
 	        	));
@@ -124,7 +124,7 @@ class listUpdateDirectory extends Controller {
 		global $reg_errors;
 
 		$idfromUrl=$_GET["id"];
-		$table_name = $wpdb->prefix . TABLENAMEMASTER;
+		$table_name = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
         $rows = $wpdb->get_results("SELECT * from $table_name where id = $idfromUrl");
 
 		$reg_errors = new WP_Error;
@@ -139,7 +139,7 @@ class listUpdateDirectory extends Controller {
 			$title_default = sanitize_text_field(  (isset($_POST["title-default"])? $_POST["title-default"]:''));
 			$title_en = sanitize_text_field(  (isset($_POST["title-en"])? $_POST["title-en"]:''));
 			$status = sanitize_text_field(  (isset($_POST["status"])? $_POST["status"]:''));
-			$table_name = $wpdb->prefix . TABLENAMEMASTER;
+			$table_name = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
 			$updated = $wpdb->update("$table_name", array(
 				 'title_default' => $title_default,
 				 'status' => $status,
@@ -155,7 +155,7 @@ class listUpdateDirectory extends Controller {
 		global $wpdb;
 		global $reg_errors;
 		$idfromUrl=$_GET["id"];
-        $table_name = $wpdb->prefix . TABLENAMEMASTER;
+        $table_name = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
         $rows = $wpdb->get_results("SELECT * from $table_name where id = $idfromUrl");
         require_once( plugin_dir_path( __FILE__ ) . "views/admin_updatelistdirectory.php");
 	}
@@ -176,7 +176,7 @@ class listStaffDirectory extends Controller {
 
 		$image_folder= plugins_url('images/', __FILE__);
 		$masterFromUrl=(isset($_GET["master"])? $_GET["master"]:'');
-		$table_name1 = $wpdb->prefix . TABLENAMEMASTER;
+		$table_name1 = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
      	$table_name2 = $wpdb->prefix . TABLENAMEDETAIL;
      	$details = $wpdb->get_results("SELECT * from $table_name1",OBJECT_K);
 
@@ -210,7 +210,7 @@ class addStaffDirectory extends Controller {
 		$reg_errors=$validation1->multiLanguageInputForm()->singleEntityInputForm()->get_reg_errors();
 		global $wpdb;
 		if ( is_wp_error( $reg_errors ) && ! empty( $reg_errors->errors ) ) {
-			$table_name1 = $wpdb->prefix . TABLENAMEMASTER;
+			$table_name1 = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
      		$details = $wpdb->get_results("SELECT * from $table_name1");
 			require_once(ABSPATH . 'wp-admin/admin-header.php');
 			require_once( plugin_dir_path( __FILE__ ) . "views/admin_addstaffdirectory.php");
@@ -242,7 +242,7 @@ class addStaffDirectory extends Controller {
 	function get_addStaffDirectory() {
 		global $reg_errors;
 		global $wpdb;
-		$table_name1 = $wpdb->prefix . TABLENAMEMASTER;
+		$table_name1 = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
      	$details = $wpdb->get_results("SELECT * from $table_name1");
 		require_once( plugin_dir_path( __FILE__ ) . "views/admin_addstaffdirectory.php");
 		
@@ -266,7 +266,7 @@ class updateStaffDirectory extends Controller {
 		$reg_errors=$validation1->multiLanguageInputForm()->singleEntityInputForm()->get_reg_errors();
 		global $wpdb;
 		if ( is_wp_error( $reg_errors ) && ! empty( $reg_errors->errors ) ) {
-			$table_name1 = $wpdb->prefix . TABLENAMEMASTER;
+			$table_name1 = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
      		$details = $wpdb->get_results("SELECT * from $table_name1");
 			require_once(ABSPATH . 'wp-admin/admin-header.php');
 			require_once( plugin_dir_path( __FILE__ ) . "views/admin_updatestaffdirectory.php");
@@ -297,7 +297,7 @@ class updateStaffDirectory extends Controller {
 	function get_updateStaffDirectory() {
 		global $reg_errors;
 		global $wpdb;
-		$table_name1 = $wpdb->prefix . TABLENAMEMASTER;
+		$table_name1 = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
      	$details = $wpdb->get_results("SELECT * from $table_name1");
      	$idfromUrl=$_GET["id"];
      	$table_name2 = $wpdb->prefix . TABLENAMEDETAIL;

@@ -5,7 +5,7 @@ require_once( plugin_dir_path( __FILE__ ) . "lang".DIRECTORY_SEPARATOR."localiza
 class frontend {
     function __construct($atts=array()) {
         global $wpdb;
-        $this->table_name1 = $wpdb->prefix . TABLENAMEMASTER;
+        $this->table_name1 = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
         $this->table_name2 = $wpdb->prefix . TABLENAMEDETAIL;
         $this->lang = "default";
     }

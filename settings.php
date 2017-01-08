@@ -1,5 +1,5 @@
 <?php
-define("TABLENAMEMASTER","ei_directorylist");
+define("EIDIR_TABLENAMEMASTER","ei_directorylist");
 define("TABLENAMEDETAIL","ei_directorylist_detail");
 define("APPS_NAME", "EI_DIRECTORY");
 define("PLUGIN_NAME", "def");
@@ -11,7 +11,7 @@ define("PAGINATION_SORT", "DESC");
 function createDBDIR_EI() {
 	global $wpdb;
 	$charset_collate = $wpdb->get_charset_collate();
-	$table_name1 = $wpdb->prefix . TABLENAMEMASTER;
+	$table_name1 = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
 	$table_name2 = $wpdb->prefix . TABLENAMEDETAIL;
 	$sql1 = "CREATE TABLE $table_name1 (
 		id mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -54,7 +54,7 @@ function createDBDIR_EI() {
 
 function deleteDBDIR_EI() {
 	global $wpdb;
-    $table_name1 = $wpdb->prefix . TABLENAMEMASTER;
+    $table_name1 = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
 	$table_name2 = $wpdb->prefix . TABLENAMEDETAIL;
 
     $wpdb->query("DROP TABLE IF EXISTS $table_name1");
