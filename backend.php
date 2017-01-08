@@ -4,7 +4,7 @@ require_once( plugin_dir_path( __FILE__ ) . "backend".DIRECTORY_SEPARATOR."menus
 require_once( plugin_dir_path( __FILE__ ) . "backend".DIRECTORY_SEPARATOR."upload.php");
 require_once( plugin_dir_path( __FILE__ ) . "backend".DIRECTORY_SEPARATOR."validation.php");
 
-add_action('admin_menu','slug_admin_menu');
+add_action('admin_menu','eidir_slug_admin_menu');
 
 class listDirectory extends EIDIR_Controller {
 	function __construct() {

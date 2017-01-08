@@ -1,5 +1,5 @@
 <?php
-function slug_admin_menu() {
+function eidir_slug_admin_menu() {
 
 	//this is the main item for the menu
 	add_menu_page(
