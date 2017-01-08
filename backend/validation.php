@@ -1,7 +1,7 @@
 <?php
 
 
-class validation {
+class eidir_validation {
 	private $reg_errors,$multiLanguageInputForm,$langs,$singleEntityInputForm;
 	function __construct(
 				$reg_errors,

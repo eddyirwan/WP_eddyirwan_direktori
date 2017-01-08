@@ -29,7 +29,7 @@ class listAddDirectory extends EIDIR_Controller {
 	function post_listAddDirectory() {
 		global $reg_errors;
 		$reg_errors = new WP_Error;
-		$validation1 = new validation($reg_errors,array('title'=>'check_empty_text'),array('en'));
+		$validation1 = new eidir_validation($reg_errors,array('title'=>'check_empty_text'),array('en'));
 		$validation1->multiLanguageInputForm();
 		$reg_errors=$validation1->get_reg_errors();
 		if ( is_wp_error( $reg_errors ) && ! empty( $reg_errors->errors ) ) {
@@ -128,7 +128,7 @@ class listUpdateDirectory extends EIDIR_Controller {
         $rows = $wpdb->get_results("SELECT * from $table_name where id = $idfromUrl");
 
 		$reg_errors = new WP_Error;
-		$validation1 = new validation($reg_errors,array('title'=>'check_empty_text'),array('en'));
+		$validation1 = new eidir_validation($reg_errors,array('title'=>'check_empty_text'),array('en'));
 		$validation1->multiLanguageInputForm();
 
 		if( is_wp_error( $reg_errors ) && ! empty( $reg_errors->errors ) ) {		
@@ -201,7 +201,7 @@ class addStaffDirectory extends EIDIR_Controller {
 	function post_addStaffDirectory() {
 		global $reg_errors;
 		$reg_errors = new WP_Error;
-		$validation1 = new validation(
+		$validation1 = new eidir_validation(
 			$reg_errors,
 			array('position'=>'check_empty_text'),
 			array('en'),
@@ -257,7 +257,7 @@ class updateStaffDirectory extends EIDIR_Controller {
 		$idfromUrl=$_POST["id"];
 		global $reg_errors;
 		$reg_errors = new WP_Error;
-		$validation1 = new validation(
+		$validation1 = new eidir_validation(
 			$reg_errors,
 			array('position'=>'check_empty_text'),
 			array('en'),
