@@ -17,28 +17,28 @@ class ei_frontend {
         $details = $wpdb->get_results("SELECT * from $this->table_name1",OBJECT_K);
         $filter=intval(isset($_GET["filter"])? $_GET["filter"]:'');
         if ($filter) {
-     		$rows=$eidir_pagination->query("*","where table_master = $filter");
-  	    	
-     	}
-     	else {
-     		$rows=$eidir_pagination->query("*");
-     		
-     	}
-     	$image_folder= plugins_url('images/', __FILE__);
+        $rows=$eidir_pagination->query("*","where table_master = $filter");
+          
+      }
+      else {
+        $rows=$eidir_pagination->query("*");
+        
+      }
+      $image_folder= plugins_url('images/', __FILE__);
         require_once( plugin_dir_path( __FILE__ ) . "views/liststaffdirectory.php");
     }
     
     public function loadLanguageClass($atts) {
-    	if (is_array($atts)) {
-    		if (array_key_exists('lang',$atts)) {
-            	require_once( plugin_dir_path( __FILE__ ) . "lang".DIRECTORY_SEPARATOR.$atts['lang'].".php");
-            	$this->lang=$atts['lang']; 
-        	}
-        	else {
-        		require_once( plugin_dir_path( __FILE__ ) . "lang".DIRECTORY_SEPARATOR."default.php"); 
-            	$this->lang = "default";
-        	}
-    	}
+      if (is_array($atts)) {
+        if (array_key_exists('lang',$atts)) {
+              require_once( plugin_dir_path( __FILE__ ) . "lang".DIRECTORY_SEPARATOR.$atts['lang'].".php");
+              $this->lang=$atts['lang']; 
+          }
+          else {
+            require_once( plugin_dir_path( __FILE__ ) . "lang".DIRECTORY_SEPARATOR."default.php"); 
+              $this->lang = "default";
+          }
+      }
         else {
             require_once( plugin_dir_path( __FILE__ ) . "lang".DIRECTORY_SEPARATOR."default.php"); 
             $this->lang = "default";

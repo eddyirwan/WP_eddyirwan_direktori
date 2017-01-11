@@ -48,14 +48,17 @@ class eidir_pagination {
 		echo '</ul>';
 	}
 	function generateLink() {
+		$current_url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+		$current_url_without_questionmark = substr( $url, 0, strrpos( $current_url, "?"));
+		
 		echo '<ul class="pagination">';
 		$y=0;
 		for ($x=0;$x<$this->totalPage;$x++) {
 			if ($this->pageRequested == $x) {
-				echo '<li class="button"><b>'.++$y.'</b></li>';
+				echo '<li><a href="javascript:void(0)">'.++$y.'</a></li>';
 			}
 			else {
-				echo '<li class="button"><a href="'.site_url().'admin.php?'.$this->urlForPagination($x).'">'.++$y.'</a></li>';
+				echo '<li><a href="'.$current_url_without_questionmark.'?'.$this->urlForPagination($x).'">'.++$y.'</a></li>';
 			}
   			
 		}

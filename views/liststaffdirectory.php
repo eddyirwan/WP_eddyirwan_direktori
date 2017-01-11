@@ -9,10 +9,16 @@
         float:left;
         margin-right:10px;
     }
+    .height25 {
+        height:25px;
+    }
+    .table {
+        margin-bottom:7px;
+        border-top:1px solid #cccccc;
+        padding-top:2px;
+    }
 
     </style>
-    <h2>STAFF DIRECTORY</h2>
-    
     <form action="<?php echo site_url(); ?>" method="get">
     <p><?php ei_localization::_output('select_text'); ?> 
     <select name="filter">
@@ -41,12 +47,11 @@
     </select> <input type="submit" value="<?php ei_localization::_output('select_button'); ?>"/ >
     </p>
     </form>
-    <table class='wp-list-table widefat plugins  striped' style="width:95%">
+    <div class="height25"></div>
+    <div>
        
         <?php foreach ($rows as $row) { ?>
-            <tr>
-                
-                <td>
+        <div class="table">
                     <div>
                     <?php 
                     if (($row->picture_path == NULL) || ($row->picture_url == NULL)){
@@ -60,6 +65,7 @@
                     } 
                     ?>
                     </div>
+
                     <div><?php ei_localization::_output('name'); ?> <?php echo ($row->name); ?></div>
                     <div><?php ei_localization::_output('email'); ?> <?php echo $row->email; ?></div>
                     <div>
@@ -80,9 +86,10 @@
                         
                     }
                     ?>
-                    </div>       
-                </td>      
-            </tr>
+                    </div> 
+                    <div style="clear:both"></div>       
+        </div>    
+        
         <?php } ?>
-    </table>
+    </div>
     <?php $eidir_pagination->generateLink(); ?> 

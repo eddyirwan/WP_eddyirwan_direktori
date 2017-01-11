@@ -38,8 +38,8 @@
     <table class='wp-list-table widefat plugins  striped' style="width:95%">
         <tr>
             <th style="width:5%;font-weight:bold">ID</th>
-            <th style="width:40%;font-weight:bold">Name</th>
-            <th style="width:20%;font-weight:bold">Position</th>
+            <th style="width:30%;font-weight:bold">Name</th>
+            <th style="width:30%;font-weight:bold">Position</th>
             <th style="width:10%;font-weight:bold">Status</th>
             <th style="width:15%;font-weight:bold">Attribute</th>
         </tr>
@@ -65,14 +65,14 @@
                     <div>
                     <?php  
                     if (array_key_exists($row->table_master,$details)) {
-                        echo "( ".$details[$row->table_master]->title_default;
-                        echo " / ";
-                        echo $details[$row->table_master]->title_default. " )";
+                        echo $details[$row->table_master]->title_default;
+                        echo "<br/>";
+                        echo $details[$row->table_master]->title_en;
                     }
                     else {
                        echo $row->table_master;  
                     }
-                    ?>
+                    ?> 
                     </div>                   
                 </td>
                 <td>

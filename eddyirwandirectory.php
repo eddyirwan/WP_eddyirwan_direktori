@@ -57,13 +57,14 @@ else {
 	add_shortcode( EIDIR_PLUGIN_NAME , 'ei_frontend' );
 	function ei_frontend($atts) {
 	    ob_start();
-	    $fe = new frontend($atts);
+	    $fe = new ei_frontend($atts);
 	    $fe->loadLanguageClass($atts);
 	    $fe->viewByDirectory();
 	    return ob_get_clean();
 	}
-	
 }
+
+	
 
 
 

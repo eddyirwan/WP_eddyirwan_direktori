@@ -3,7 +3,7 @@ define("EIDIR_TABLENAMEMASTER","ei_directorylist");
 define("EIDIR_TABLENAMEDETAIL","ei_directorylist_detail");
 define("EIDIR_APPS_NAME", "EI DIRECTORY");
 define("EIDIR_PLUGIN_NAME", "def");
-define("EIDIR_PAGINATION", "5");
+define("EIDIR_PAGINATION", "3");
 define("EIDIR_PAGINATION_SORT", "DESC");
 
 /* please dont touch */
