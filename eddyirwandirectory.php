@@ -23,7 +23,7 @@ add_action( 'wp_ajax_ei_seeResultFromAjax', 'ei_seeResultFromAjax' );
 add_action( 'wp_ajax_nopriv_ei_seeResultFromAjax', 'ei_seeResultFromAjax' );
 add_action( 'init', 'custom_lang_found' );
 */
-add_shortcode( EIDIR_PLUGIN_NAME , 'ei_frontend' );
+
 
 if (is_admin()) {
 	require_once( plugin_dir_path( __FILE__ ) . "backend.php");
@@ -54,7 +54,7 @@ if (is_admin()) {
 }
 else {
 	require_once( plugin_dir_path( __FILE__ ) . "frontend.php");
-
+	add_shortcode( EIDIR_PLUGIN_NAME , 'ei_frontend' );
 	function ei_frontend($atts) {
 	    ob_start();
 	    $fe = new frontend($atts);
