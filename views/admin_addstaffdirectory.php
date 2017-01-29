@@ -51,6 +51,20 @@ Position En (required) <br/>
     value="<?php echo ( isset( $_POST["position-en"] ) ?  ( $_POST["position-en"] ) : '' ) ?>" 
     size="100" />
 </p>
+<p>
+Phone (required) <br/>
+<input type="text" name="telephone" 
+    
+    value="<?php echo ( isset( $_POST["telephone"] ) ?  ( $_POST["telephone"] ) : '' ) ?>" 
+    size="100" />
+</p>
+<p>
+Fax (required) <br/>
+<input type="text" name="fax" 
+    
+    value="<?php echo ( isset( $_POST["fax"] ) ?  ( $_POST["fax"] ) : '' ) ?>" 
+    size="100" />
+</p>
 <p>Directory  <br/>
 <select name="directory">
 <option value="">Please choose</option>

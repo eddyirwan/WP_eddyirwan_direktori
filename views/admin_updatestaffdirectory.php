@@ -50,6 +50,20 @@ Title En (required) <br/>
     value="<?php echo ( isset( $_POST["title-en"] ) ? ( $_POST["position-en"] ) : $row->position_en ) ?>" 
     size="100" />
 </p>
+<p>
+Phone (required) <br/>
+<input type="text" name="telephone" 
+    
+    value="<?php echo ( isset( $_POST["telephone"] ) ?  ( $_POST["telephone"] ) : $row->telephone ) ?>" 
+    size="100" />
+</p>
+<p>
+Fax (required) <br/>
+<input type="text" name="fax" 
+    
+    value="<?php echo ( isset( $_POST["fax"] ) ?  ( $_POST["fax"] ) : $row->fax ) ?>" 
+    size="100" />
+</p>
 <p>Directory  <br/>
 <select name="directory">
 <option value="">Please choose</option>
@@ -106,5 +120,5 @@ Status  <br/>
 
 <p>
     <input type="submit" class="button" value="Send"> 
-    <a href="<?php echo admin_url('admin.php?page=list_directory'); ?>">Back</a> </p>
+    <a href="<?php echo admin_url('admin.php?page=list_staff_directory'); ?>">Back</a> </p>
 </form>

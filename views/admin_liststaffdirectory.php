@@ -9,11 +9,22 @@
         float:left;
         margin-right:10px;
     }
+    .blocks {
+        border:1px solid #cccccc;
+        padding:5px;
+        margin-bottom:5px;
+        color:#fff;
+        background-color: #cccccc;
+    }
 
     </style>
     <h2>STAFF DIRECTORY</h2>
     
-    <p><a href="<?php echo admin_url('admin.php?page=add_staff_directory'); ?>">Add Staff</a></p>
+    <p>
+    <a href="<?php echo admin_url('admin.php?page=add_staff_directory'); ?>">Add Staff</a>
+    ::
+    <a href="<?php echo admin_url('admin.php?page=list_directory'); ?>">Listing ALL Directory</a>
+    </p>
     <form action="<?php echo admin_url('admin.php'); ?>" method="get">
     <p>Directory 
     <input type="hidden" name="page" value="list_staff_directory"/>
@@ -30,7 +41,7 @@
         }
       ?>
         >
-      <?php echo $detail->title_default; ?> / <?php echo $detail->title_en; ?></option>
+      <?php echo $detail->title_default; ?></option>
     <?php } ?>
     </select> <input type="submit" class="button" value="View"/ >
     </p>
@@ -38,8 +49,8 @@
     <table class='wp-list-table widefat plugins  striped' style="width:95%">
         <tr>
             <th style="width:5%;font-weight:bold">ID</th>
-            <th style="width:30%;font-weight:bold">Name</th>
-            <th style="width:30%;font-weight:bold">Position</th>
+            <th style="width:25%;font-weight:bold">Name</th>
+            <th style="width:35%;font-weight:bold">Profile</th>
             <th style="width:10%;font-weight:bold">Status</th>
             <th style="width:15%;font-weight:bold">Attribute</th>
         </tr>
@@ -61,23 +72,26 @@
                     ?>
                     </div>
                     <div><b><?php echo strtoupper($row->name); ?></b></div>
-                    <div><?php echo $row->email; ?></div>
-                    <div>
+                    <div>Email:<br/><small><?php echo $row->email; ?></small></div>
+                    <div>Tel: <small><?php echo $row->telephone; ?></small></div>
+                    <div>Fax: <small><?php echo $row->fax; ?></small></div>                   
+                </td>
+                <td>
+                <div class="blocks">
+                    <div>Default: <?php echo $row->position_default; ?></div>   
+                    <div>En: <?php echo $row->position_en; ?></div>  
+                </div>
+                <div class="blocks">
                     <?php  
                     if (array_key_exists($row->table_master,$details)) {
-                        echo $details[$row->table_master]->title_default;
-                        echo "<br/>";
-                        echo $details[$row->table_master]->title_en;
+                        echo "<div>Default: ".$details[$row->table_master]->title_default."</div>";
+                        echo "<div>En:".$details[$row->table_master]->title_en."</div>";
                     }
                     else {
                        echo $row->table_master;  
                     }
-                    ?> 
-                    </div>                   
-                </td>
-                <td>
-                    <div>Default: <?php echo $row->position_default; ?></div>   
-                    <div>En: <?php echo $row->position_en; ?></div>                   
+                    ?>              
+                </div>    
                 </td>
                 <td><?php echo eidir_StringHelper::returnTextForStatus($row->status); ?></td>
                 <td> 

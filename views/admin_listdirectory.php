@@ -7,7 +7,11 @@
     </style>
     <h2>JPN POLL</h2>
     
-    <p><a href="<?php echo admin_url('admin.php?page=list_add_directory'); ?>">Add Directory</a></p>
+    <p>
+    <a href="<?php echo admin_url('admin.php?page=list_add_directory'); ?>">Add Directory</a>
+    ::
+    <a href="<?php echo admin_url('admin.php?page=list_staff_directory'); ?>">Listing ALL Staff Directory</a>
+    </p>
     <table class='wp-list-table widefat plugins  striped' style="width:95%">
         <tr>
             <th style="width:5%;font-weight:bold">ID</th>
@@ -33,7 +37,7 @@
                         ::
                         <a href="<?php echo admin_url('admin.php?task=deleteall&page=list_delete_directory&noheader=true&id=' . $row->id); ?>" onclick="return confirm('Are you sure?')">Delete</a>
                         ::
-                        <a href="<?php echo admin_url('admin.php?page=list_staff_directory&master=' . $row->id); ?>" >Detail</a>
+                        <a href="<?php echo admin_url('admin.php?page=list_staff_directory&master=' . $row->id); ?>" >List Staff</a>
                     </div>  
                 </td>               
             </tr>

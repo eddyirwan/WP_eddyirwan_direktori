@@ -47,7 +47,7 @@ if ( is_wp_error( $reg_errors ) ) {
 <input type="hidden" name="id" value="<?php echo $idfromUrl ?>"/>
 <?php foreach ($rows as $row) { ?>
 <p>
-Name : <?php $row->name; ?><br/>
+Name : <?php echo $row->name; ?><br/>
 <?php 
 if (($row->picture_path == NULL) || ($row->picture_url == NULL)){
     ?>

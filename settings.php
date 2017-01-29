@@ -20,7 +20,8 @@ function createDBDIR_EIDIR() {
 		title_default varchar(150) NOT NULL,
 		title_en varchar(150) NOT NULL,
 		create_by bigint(20) NOT NULL,
-		UNIQUE KEY id (id)
+		UNIQUE KEY id (id),
+		KEY `status` (`status`)
 	) $charset_collate;";
 
 	$sql2 = "CREATE TABLE $table_name2 (
@@ -44,8 +45,8 @@ function createDBDIR_EIDIR() {
 	) $charset_collate;";
 
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-	dbDelta($sql1);
-	dbDelta($sql2);
+	#dbDelta($sql1);
+	#dbDelta($sql2);
 	   
 }
 
@@ -54,8 +55,8 @@ function deleteDBDIR_EIDIR() {
     $table_name1 = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
 	$table_name2 = $wpdb->prefix . EIDIR_TABLENAMEDETAIL;
 
-    $wpdb->query("DROP TABLE IF EXISTS $table_name1");
-    $wpdb->query("DROP TABLE IF EXISTS $table_name2");
+    #$wpdb->query("DROP TABLE IF EXISTS $table_name1");
+    #$wpdb->query("DROP TABLE IF EXISTS $table_name2");
 	
 }
 

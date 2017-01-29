@@ -49,7 +49,7 @@ class eidir_pagination {
 	}
 	function generateLink() {
 		$current_url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-		$current_url_without_questionmark = substr( $url, 0, strrpos( $current_url, "?"));
+		$current_url_without_questionmark = substr( $current_url, 0, strrpos( $current_url, "?"));
 		
 		echo '<ul class="pagination">';
 		$y=0;

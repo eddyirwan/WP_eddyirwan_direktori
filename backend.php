@@ -206,7 +206,7 @@ class addStaffDirectory extends EIDIR_Controller {
 			array('position'=>'check_empty_text'),
 			array('en'),
 			1,
-			array('name'=>'check_empty_text','email'=>'check_email'));
+			array('name'=>'check_empty_text','email'=>'check_email','telephone'=>'check_empty_text','fax'=>'check_empty_text'));
 		$reg_errors=$validation1->multiLanguageInputForm()->singleEntityInputForm()->get_reg_errors();
 		global $wpdb;
 		if ( is_wp_error( $reg_errors ) && ! empty( $reg_errors->errors ) ) {
@@ -223,6 +223,8 @@ class addStaffDirectory extends EIDIR_Controller {
 			$email = sanitize_text_field(  (isset($_POST["email"])? $_POST["email"]:''));
 			$name = sanitize_text_field(  (isset($_POST["name"])? $_POST["name"]:''));
 			$directory = sanitize_text_field(  (isset($_POST["directory"])? $_POST["directory"]:''));
+			$phone = sanitize_text_field(  (isset($_POST["phone"])? $_POST["phone"]:''));
+			$fax = sanitize_text_field(  (isset($_POST["fax"])? $_POST["fax"]:''));
 			$user = wp_get_current_user();
         	$wpdb->insert( $table_name1, 
 	            array( 
@@ -231,6 +233,8 @@ class addStaffDirectory extends EIDIR_Controller {
 	                'name' => $name,
 	                'email' => $email,
 	                'create_by' => $user->ID,
+	                'phone' => $phone,
+	                'fax' => $fax,
 	                'table_master' => $directory,
 	                'status' => $status
 	            )
@@ -262,12 +266,14 @@ class updateStaffDirectory extends EIDIR_Controller {
 			array('position'=>'check_empty_text'),
 			array('en'),
 			1,
-			array('name'=>'check_empty_text','email'=>'check_email'));
+			array('name'=>'check_empty_text','email'=>'check_email','telephone'=>'check_empty_text','fax'=>'check_empty_text'));
 		$reg_errors=$validation1->multiLanguageInputForm()->singleEntityInputForm()->get_reg_errors();
 		global $wpdb;
 		if ( is_wp_error( $reg_errors ) && ! empty( $reg_errors->errors ) ) {
 			$table_name1 = $wpdb->prefix . EIDIR_TABLENAMEMASTER;
      		$details = $wpdb->get_results("SELECT * from $table_name1");
+     		$table_name2 = $wpdb->prefix . EIDIR_TABLENAMEDETAIL;
+        	$rows = $wpdb->get_results("SELECT * from $table_name2 where id = $idfromUrl");
 			require_once(ABSPATH . 'wp-admin/admin-header.php');
 			require_once( plugin_dir_path( __FILE__ ) . "views/admin_updatestaffdirectory.php");
 		}
@@ -279,6 +285,8 @@ class updateStaffDirectory extends EIDIR_Controller {
 			$email = sanitize_text_field(  (isset($_POST["email"])? $_POST["email"]:''));
 			$name = sanitize_text_field(  (isset($_POST["name"])? $_POST["name"]:''));
 			$directory = (isset($_POST["directory"])? $_POST["directory"]:'');
+			$telephone = sanitize_text_field(  (isset($_POST["telephone"])? $_POST["telephone"]:''));
+			$fax = sanitize_text_field(  (isset($_POST["fax"])? $_POST["fax"]:''));
 			$user = wp_get_current_user();
         	
 	        $updated = $wpdb->update($table_name1, array(
@@ -288,6 +296,8 @@ class updateStaffDirectory extends EIDIR_Controller {
 	                'email' => $email,
 	                'create_by' => $user->ID,
 	                'table_master' => $directory,
+	                'telephone' => $telephone,
+	                'fax' => $fax,
 	                'status' => $status),
 				array('id'=>$idfromUrl));      
 			wp_redirect(admin_url().'admin.php?page=list_staff_directory');
@@ -349,7 +359,11 @@ class pictureStaffDirectory extends EIDIR_Controller {
 		global $reg_errors;
 		$idfromUrl=$_GET["id"];
 		$table_name = $wpdb->prefix . EIDIR_TABLENAMEDETAIL;
-     	$rows = $wpdb->get_results("SELECT * from $table_name WHERE id = $idfromUrl");
+		$sql="SELECT * from $table_name WHERE id = $idfromUrl";
+		echo $sql;
+
+     	$rows = $wpdb->get_results($sql);
+     	#echo "<pre>".print_r($rows,true)."</pre>";
      	$image_folder= plugins_url('images/', __FILE__);
 		require_once( plugin_dir_path( __FILE__ ) . "views/admin_picturestaffdirectory.php");
 	}

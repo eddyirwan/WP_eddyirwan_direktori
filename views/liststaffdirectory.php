@@ -12,16 +12,30 @@
     .height25 {
         height:25px;
     }
+    .height10 {
+        height:10px;
+    }
     .table {
         margin-bottom:7px;
         border-top:1px solid #cccccc;
         padding-top:2px;
     }
+    #filter {
+        font-size:16px;
+        vertical-align: middle;
+    }
+    #search option{
+        font-size:14px;
+        vertical-align: middle;
+        border:1px solid red;
+    }
 
     </style>
-    <form action="<?php echo site_url(); ?>" method="get">
-    <p><?php ei_localization::_output('select_text'); ?> 
-    <select name="filter">
+
+    <form action="<?php echo eidir_StringHelper::getUrlAndRemoveQueryString(); ?>" method="get">
+    
+    <div><?php ei_localization::_output('select_text'); ?> <br/>
+    <select name="filter" id="filter">
     <option value=""><?php ei_localization::_output('select_pleaseChoose'); ?></option>
     <?php foreach ($details as $detail) { ?>
       <option 
@@ -44,8 +58,14 @@
     ?> 
     </option>
     <?php } ?>
-    </select> <input type="submit" value="<?php ei_localization::_output('select_button'); ?>"/ >
-    </p>
+    </select>
+    </div>
+     <div class="height10"></div>
+    <div>
+        <?php ei_localization::_output('input_text'); ?> <br/> <input type="text" name="search" id="search" value="" />
+    </div>
+    <div class="height25"></div>
+    <div><input type="submit" value="<?php ei_localization::_output('select_button'); ?>"/ ></div>
     </form>
     <div class="height25"></div>
     <div>
@@ -68,6 +88,8 @@
 
                     <div><?php ei_localization::_output('name'); ?> <?php echo ($row->name); ?></div>
                     <div><?php ei_localization::_output('email'); ?> <?php echo $row->email; ?></div>
+                    <div><?php ei_localization::_output('telephone'); ?> <?php echo $row->telephone; ?></div>
+                    <div><?php ei_localization::_output('fax'); ?> <?php echo $row->fax; ?></div>
                     <div>
                         <?php ei_localization::_output('position'); ?> 
                         <?php ei_localization::_dynamicOutput($row,$this->lang,'position'); ?> 

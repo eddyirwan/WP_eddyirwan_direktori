@@ -5,10 +5,11 @@ class ei_Localization extends localization{
 	public static $email = "Email: ";
 	public static $position = "Position: ";
 	public static $department = "Department: ";
-	public static $telefon = "Telephone: ";
-	public static $faks = "Fax: ";
+	public static $telephone = "Telephone: ";
+	public static $fax = "Fax: ";
 	public static $select_pleaseChoose = "Please choose";
 	public static $select_text = "Department";
+	public static $input_text = "Name";
 	public static $select_button = "View";
 
 	public static final function _output($keyword='xxx') {
