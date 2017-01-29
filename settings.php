@@ -1,7 +1,8 @@
 <?php
 define("EIDIR_TABLENAMEMASTER","ei_directorylist");
 define("EIDIR_TABLENAMEDETAIL","ei_directorylist_detail");
-define("EIDIR_APPS_NAME", "EI DIRECTORY");
+#upload folder in wp-content/uploads/<EIDIR_APPS_NAME>
+define("EIDIR_APPS_NAME", "EI_DIRECTORY"); 
 define("EIDIR_PLUGIN_NAME", "def");
 define("EIDIR_PAGINATION", "3");
 define("EIDIR_PAGINATION_SORT", "DESC");
