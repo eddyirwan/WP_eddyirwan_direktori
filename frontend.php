@@ -24,7 +24,7 @@ class ei_frontend {
           if ($search) {
             $master_search = "and name like '%$search%'";
           }
-        $rows=$eidir_pagination->query("*","where 1 $master $master_search and status = 1");
+        $rows=$eidir_pagination->query("*","where 1 $master_filter $master $master_search and status = 1");
         }
         else {
           $rows=$eidir_pagination->query("*");
