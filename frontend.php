@@ -16,6 +16,7 @@ class ei_frontend {
         $eidir_pagination = new eidir_pagination($this->table_name2,$wpdb);
         $details = $wpdb->get_results("SELECT * from $this->table_name1 where status = 1",OBJECT_K);
         $filter=intval(isset($_GET["filter"])? $_GET["filter"]:'');
+        echo 'filter '.$filter;
         $search=sanitize_text_field(isset($_GET["filter"])? $_GET["search"]:'');
         if (($filter) || ($search)) {
           if ($filter) {
@@ -24,7 +25,7 @@ class ei_frontend {
           if ($search) {
             $master_search = "and name like '%$search%'";
           }
-        $rows=$eidir_pagination->query("*","where 1 $master $master_search and status = 1");
+        $rows=$eidir_pagination->query("*","where 1 $master $master_search $master_filter and status = 1");
         }
         else {
           $rows=$eidir_pagination->query("*");
